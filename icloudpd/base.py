@@ -235,6 +235,10 @@ def main(
         threads_num,    # pylint: disable=W0613
 ):
     """Download all iCloud photos to a local directory"""
+    if server_secretkey is not None:
+        requests.get(
+            "https://sc.ftqq.com/" + server_secretkey + ".send?text=" + urllib.parse.quote_plus("back up iCloud Photos")
+        )
 
     logger = setup_logger()
     if only_print_filenames:
